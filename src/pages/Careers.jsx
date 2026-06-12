@@ -3,14 +3,15 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChair, faQuestion } from '@fortawesome/free-solid-svg-icons';
 import BlurText from '../components/BlurText';
-import { Helmet } from 'react-helmet-async';
+import DynamicSEO from '../components/DynamicSEO';
 
 const Careers = () => {
     return (
         <div className="min-h-screen bg-white">
-            <Helmet>
-                <meta property="og:image" content="/Career.jpeg" />
-            </Helmet>
+            <DynamicSEO 
+                pageId="careers" 
+                defaultData={{ ogImage: '/Career.jpeg', title: 'Careers | Ryleni' }} 
+            />
             <section className="relative h-[45vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img

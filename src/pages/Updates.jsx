@@ -1,14 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import BlurText from '../components/BlurText';
-import { Helmet } from 'react-helmet-async';
+import DynamicSEO from '../components/DynamicSEO';
 
 const Updates = () => {
     return (
         <div className="min-h-screen bg-white">
-            <Helmet>
-                <meta property="og:image" content="/Updates.jpeg" />
-            </Helmet>
+            <DynamicSEO 
+                pageId="updates" 
+                defaultData={{ ogImage: '/Updates.jpeg', title: 'Updates | Ryleni' }} 
+            />
             <section className="relative h-[45vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img

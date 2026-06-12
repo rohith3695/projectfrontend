@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserGroup, faRocket, faGlobe, faArrowTrendUp, faLink, faCheckCircle, faLock } from '@fortawesome/free-solid-svg-icons';
 import PillButton from '../components/Pillbutton';
 import { InputField, TextareaField, SelectField, FileUploadField } from '../components/FormFields';
+import DynamicSEO from '../components/DynamicSEO';
 
 const sections = [
     { id: 'personal-info', label: 'Personal Info', icon: faUserGroup },
@@ -223,6 +224,10 @@ const Founder = () => {
 
     return (
         <div className="min-h-screen bg-white">
+            <DynamicSEO 
+                pageId="founder" 
+                defaultData={{ ogImage: '/About.jpeg', title: 'Founder | Ryleni' }} 
+            />
 
             <section className="relative h-[45vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">

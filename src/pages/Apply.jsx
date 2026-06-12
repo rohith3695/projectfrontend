@@ -4,6 +4,7 @@ import PillButton from '../components/Pillbutton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faPhone, faBriefcase, faBuilding, faTag, faLink } from '@fortawesome/free-solid-svg-icons';
 import { InputField, TextareaField, SelectField, IndustriesField, FileUploadField } from '../components/FormFields';
+import DynamicSEO from '../components/DynamicSEO';
 
 const Apply = () => {
     const [formData, setFormData] = useState({
@@ -45,6 +46,10 @@ const Apply = () => {
 
     return (
         <div className="min-h-screen bg-white">
+            <DynamicSEO 
+                pageId="apply" 
+                defaultData={{ ogImage: '/Logo.png', title: 'Apply | Ryleni' }} 
+            />
 
             <section className="relative h-[45vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">

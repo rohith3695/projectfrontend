@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import BlurText from '../components/BlurText';
 import PillButton from '../components/Pillbutton';
-import { Helmet } from 'react-helmet-async';
+import DynamicSEO from '../components/DynamicSEO';
 
 const servicePillars = [
     {
@@ -58,9 +58,10 @@ const servicePillars = [
 const Service = () => {
     return (
         <div className="min-h-screen bg-white font-myfont overflow-hidden">
-            <Helmet>
-                <meta property="og:image" content="/services.jpeg" />
-            </Helmet>
+            <DynamicSEO 
+                pageId="service" 
+                defaultData={{ ogImage: '/services.jpeg', title: 'Services | Ryleni' }} 
+            />
 
             <section className="relative pt-32 pb-20 px-6 md:px-12 lg:px-24 dot-grid">
                 <div className="max-w-[1400px] mx-auto text-center flex flex-col items-center">

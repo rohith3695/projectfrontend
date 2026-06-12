@@ -5,14 +5,15 @@ import Team from "../components/Team/team"
 import Services from "../components/Differentsection"
 import Challenges from "../components/Challenges"
 import Portfolio from "../components/Portfolio/portfolio"
-import { Helmet } from "react-helmet-async"
+import DynamicSEO from "../components/DynamicSEO";
 
 const Home = () => {
     return (
         <>
-            <Helmet>
-                <meta property="og:image" content="/How_it_works.jpeg" />
-            </Helmet>
+            <DynamicSEO 
+                pageId="home" 
+                defaultData={{ ogImage: '/How_it_works.jpeg', title: 'Home | Ryleni' }} 
+            />
             <Herosection />
             <Aboutsection />
             <Team />
