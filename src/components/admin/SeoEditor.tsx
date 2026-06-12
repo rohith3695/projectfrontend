@@ -7,13 +7,14 @@ import SocialPreview from './SocialPreview';
 import SchemaBuilder from './SchemaBuilder';
 
 const PAGES = [
-    { id: 'home', name: 'Home', path: '/' },
-    { id: 'portfolio', name: 'Portfolio', path: '/portfolio' },
-    { id: 'service', name: 'Service', path: '/service' },
-    { id: 'apply', name: 'Apply', path: '/apply' },
-    { id: 'founder', name: 'Founder', path: '/founder' },
-    { id: 'careers', name: 'Careers', path: '/careers' },
-    { id: 'collaboration', name: 'Collaboration', path: '/collaboration' },
+    { id: 'home', name: 'Home', path: '/', defaultOgImage: 'https://ryleni.com/How_it_works.jpeg' },
+    { id: 'portfolio', name: 'Portfolio', path: '/portfolio', defaultOgImage: 'https://ryleni.com/Portfolio.jpeg' },
+    { id: 'service', name: 'Service', path: '/service', defaultOgImage: 'https://ryleni.com/services.jpeg' },
+    { id: 'apply', name: 'Apply', path: '/apply', defaultOgImage: 'https://ryleni.com/Logo.png' },
+    { id: 'founder', name: 'Founder', path: '/founder', defaultOgImage: 'https://ryleni.com/About.jpeg' },
+    { id: 'careers', name: 'Careers', path: '/careers', defaultOgImage: 'https://ryleni.com/Career.jpeg' },
+    { id: 'collaboration', name: 'Collaboration', path: '/collaboration', defaultOgImage: 'https://ryleni.com/Logo.png' },
+    { id: 'updates', name: 'Updates', path: '/updates', defaultOgImage: 'https://ryleni.com/Updates.jpeg' },
 ];
 
 const SeoEditor = () => {
@@ -59,6 +60,9 @@ const SeoEditor = () => {
     const fetchMetadata = async (pageId: string) => {
         setLoading(true);
         try {
+            const pageObj = PAGES.find(p => p.id === pageId);
+            const defaultImageUrl = pageObj?.defaultOgImage || '';
+
             const docRef = doc(db, 'seo_settings', pageId);
             const docSnap = await getDoc(docRef);
 
@@ -68,7 +72,7 @@ const SeoEditor = () => {
                     title: data.title || '',
                     description: data.description || '',
                     keywords: data.keywords || '',
-                    ogImage: data.ogImage || '',
+                    ogImage: data.ogImage || defaultImageUrl,
                     canonical: data.canonical || '',
                     noindex: data.noindex || false,
                     schema: data.schema || {},
@@ -78,7 +82,7 @@ const SeoEditor = () => {
                     title: '',
                     description: '',
                     keywords: '',
-                    ogImage: '',
+                    ogImage: defaultImageUrl,
                     canonical: '',
                     noindex: false,
                     schema: {},
